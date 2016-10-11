@@ -1,4 +1,7 @@
-from functools import lru_cache
+try:
+    from functools import lru_cache
+except ImportError:  # pragma: no cover
+    from backports.functools_lru_cache  import lru_cache
 
 
 def _iterate_subclasses(cls):
