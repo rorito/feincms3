@@ -8,7 +8,8 @@ def _iterate_subclasses(cls):
 
     for scls in cls.__subclasses__():
         yield scls
-        yield from _iterate_subclasses(scls)
+        for subclass in _iterate_subclasses(scls):
+        	yield subclass
 
 
 @lru_cache(maxsize=8)
