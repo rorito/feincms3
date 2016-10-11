@@ -18,6 +18,10 @@ except ImportError:  # pragma: no cover
     # Django <1.10
     from django.core.urlresolvers import reverse
 
+import sys
+if sys.version_info < (3,0):
+    from builtins import (super)
+
 
 csrf_protect_m = method_decorator(csrf_protect)
 
